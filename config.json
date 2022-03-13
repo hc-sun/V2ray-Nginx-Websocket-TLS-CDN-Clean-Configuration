@@ -1,0 +1,48 @@
+{
+  "inbounds": [
+    {
+      "port": 12345,
+      "listen": "127.0.0.1",
+      "tag": "vmess-in",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "GENERATED_UUID",
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/wsapp"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "vmess-in"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
+}
