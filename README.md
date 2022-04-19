@@ -143,6 +143,20 @@ server {
 }
 
 ```
+Edit `sysctl.conf` to enable BBR congestion control algorithm
+```bash
+nano /etc/sysctl.conf
+```
+Add following two lines:
+```
+net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+```
+Apply changes and verify BBR is in use
+```bash
+sudo sysctl -p
+sysctl net.ipv4.tcp_congestion_control
+```
 
 Set V2ray and Nginx to run at startup
 ```bash
