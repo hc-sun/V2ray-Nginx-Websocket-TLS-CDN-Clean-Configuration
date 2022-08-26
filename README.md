@@ -43,12 +43,12 @@ Issue TLS certificate for the website. Here an API Key is needed, it can be foun
 <img src="./img/cfkey.png" width="600"/>
 
 ```bash
-sudo curl  https://get.acme.sh | sh
+curl  https://get.acme.sh | sh
 source ~/.bashrc
-sudo export CF_Key="MY_API_KEY"
-sudo export CF_Email="MY_CLOUDFLARE_EMAIL_ADDRESS"
-sudo acme.sh --issue --dns dns_cf -d domainname.com -d *.domainname.com -k ec-256
-sudo acme.sh --installcert -d domainname.com -d *.domainname.com --fullchainpath /usr/local/etc/v2ray/domainname.com.crt --keypath /usr/local/etc/v2ray/domainname.com.key --ecc
+export CF_Key="MY_API_KEY"
+export CF_Email="MY_CLOUDFLARE_EMAIL_ADDRESS"
+acme.sh --issue --dns dns_cf -d domainname.com -d *.domainname.com -k ec-256
+acme.sh --installcert -d domainname.com -d *.domainname.com --fullchainpath /usr/local/etc/v2ray/domainname.com.crt --keypath /usr/local/etc/v2ray/domainname.com.key --ecc
 ```
 
 `config.json` is the config file of V2ray which usually locates in the "/usr/local/etc/v2ray/".
