@@ -1,6 +1,6 @@
 # V2ray+Nginx+Websocket+TLS+CDN Clean Configuration
 
-V2ray protocal configured with Nginx, Websocket, TLS and CDN to improve proxy speed and security.
+This script installs and configures V2ray with Nginx, Websocket, TLS and CDN to improve proxy speed and prevent ip address block.
 
 ## Requirements
 - A Virtual Private Server (example IP address: 123.456.789.10)
@@ -12,7 +12,24 @@ After [pointing domain nameservers to Cloudflare](https://developers.cloudflare.
 ![a record](./img/arecord.png)
 
 
-## Server Configuration
+Get a Cloudflare API Key, it can be found on Cloudflare website=>My profile=>API Tokens=>Global API Key=>View 
+
+<img src="./img/cfkey.png" width="600"/>
+
+1. Download the `v2ray-install.sh` file to VPS and make it executable.
+```bash
+curl -O https://raw.githubusercontent.com/hc-sun/V2ray-Nginx-Websocket-TLS-CDN-Clean-Configuration/main/v2ray-install.sh
+chmod +x openvpn-install.sh
+```
+2. Run the script as root.
+```bash
+./v2ray-install.sh
+```
+3. Input required domain name, cloudflare api key, cloudflare email and a port number.
+
+
+## You can also follow the steps below to manually complete server configuration.
+
 Install prerequisites
 ```bash
 apt-get update && apt-get install nginx curl ufw socat
@@ -38,15 +55,13 @@ Install V2ray
 sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 ```
 
-Issue TLS certificate for the website. Here an API Key is needed, it can be found in Cloudflare website=>My profile=>API Tokens=>Global API Key=>View 
-
-<img src="./img/cfkey.png" width="600"/>
+Issue TLS certificate for the website, replace CLOUDFLARE_API_KEY, CLOUDFLARE_EMAIL_ADDRESS and Domain Name.
 
 ```bash
 curl  https://get.acme.sh | sh
 source ~/.bashrc
-export CF_Key="MY_API_KEY"
-export CF_Email="MY_CLOUDFLARE_EMAIL_ADDRESS"
+export CF_Key="CLOUDFLARE_API_KEY"
+export CF_Email="CLOUDFLARE_EMAIL_ADDRESS"
 acme.sh --issue --dns dns_cf -d domainname.com -d *.domainname.com -k ec-256
 acme.sh --installcert -d domainname.com -d *.domainname.com --fullchainpath /usr/local/etc/v2ray/domainname.com.crt --keypath /usr/local/etc/v2ray/domainname.com.key --ecc
 ```
