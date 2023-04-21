@@ -28,7 +28,7 @@ chmod +x v2ray-install.sh
 ```bash
 ./v2ray-install.sh
 ```
-3. Input required domain name, cloudflare api key, cloudflare email and a port number.
+4. Input required domain name, cloudflare api key, cloudflare email and a port number.
 
 
 ## You can also follow the steps below to manually complete server configuration.
