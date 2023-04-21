@@ -16,12 +16,15 @@ Get a Cloudflare API Key, it can be found on Cloudflare website=>My profile=>API
 
 <img src="./img/cfkey.png" width="600"/>
 
-1. Download the `v2ray-install.sh` file to VPS and make it executable.
+1. Download the `v2ray-install.sh` file to VPS.
 ```bash
 curl -O https://raw.githubusercontent.com/hc-sun/V2ray-Nginx-Websocket-TLS-CDN-Clean-Configuration/main/v2ray-install.sh
-chmod +x openvpn-install.sh
 ```
-2. Run the script as root.
+2. Make the file executable.
+```bash
+chmod +x v2ray-install.sh
+```
+3. Run the script as root.
 ```bash
 ./v2ray-install.sh
 ```
