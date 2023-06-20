@@ -129,7 +129,7 @@ Change the content of  `config.json` as below, the UUID([generate a UUID](https:
 The cofiguration file of Nginx can be put under "/etc/nginx/conf.d/default.conf", a website can be hosted under "/var/www/mysite".
 
 ```bash
-sudo mkdir /var/www/mysite
+sudo mkdir /var/www/html
 nano /etc/nginx/conf.d/default.conf
 ```
 Change the content of `default.conf` as follow:
