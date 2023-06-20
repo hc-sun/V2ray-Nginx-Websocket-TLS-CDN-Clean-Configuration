@@ -100,7 +100,7 @@ server {
     ssl_session_timeout 10m;
     server_name domainname.com;
     index index.html index.htm;
-    root /var/www/mysite;
+    root /var/www/html;
     location /wsapp
     {
         proxy_redirect off;
