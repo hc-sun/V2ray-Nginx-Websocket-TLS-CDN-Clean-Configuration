@@ -61,7 +61,7 @@ sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/ma
 Issue TLS certificate for the website, replace CLOUDFLARE_API_KEY, CLOUDFLARE_EMAIL_ADDRESS and Domain Name.
 
 ```bash
-curl  https://get.acme.sh | sh
+curl https://get.acme.sh | sh -s email=my@example.com
 source ~/.bashrc
 export CF_Key="CLOUDFLARE_API_KEY"
 export CF_Email="CLOUDFLARE_EMAIL_ADDRESS"
