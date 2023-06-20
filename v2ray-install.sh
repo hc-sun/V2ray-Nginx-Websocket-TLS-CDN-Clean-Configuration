@@ -16,6 +16,7 @@ ufw allow 80
 ufw allow 443
 
 # Prompt user to input domain info
+read -p "Input your email for web certificate: " cert_email
 read -p "Input your domain name: " domain_name
 read -p "Input your Cloudflare API key: " cf_key
 read -p "Input your Cloudflare email: " cf_email
@@ -25,7 +26,7 @@ read -p "Input a port number:" port_num
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 
 # Issue TLS certificate for the website
-curl https://get.acme.sh | sh
+curl https://get.acme.sh | sh -s email="$cert_email"
 source ~/.bashrc
 export CF_Key="$cf_key"
 export CF_Email="$cf_email"
