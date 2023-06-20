@@ -98,7 +98,7 @@ server {
     ssl_prefer_server_ciphers on;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
-    server_name $domain_name;
+    server_name .$domain_name;
     index index.html index.htm;
     root /var/www/html;
     location /wsapp
